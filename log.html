@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <title>Регистрация - АК Столичная</title>
+		<link rel="icon" href="css/pics/icon.png" type="image/x-icon">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="js/validator.js"></script>
+
+	</head>
+	
+	<body>
+		<table width="100%" height="100%" style=" top:0; border-collapse: collapse; background-color: #ff4f00">
+			<tr height="20%">
+				<td width="20%" colspan="2">
+					<img src = "css/pics/logo.png" alt="Логотип" title="Логотип" >
+				</td> 
+				<td width="60%" colspan="3">
+					<h1 style="line-height: 0%"><a href="main.html" style="color:#000; text-decoration:none">Столичная</a></h1>
+					<h2 style="line-height: 20%">автобусная компания</h2>
+				</td>				
+				<td width="20%" align="right">
+					<table  width="100%">
+						<tr>
+							<td width="20%"><p>Логин:</p></td> 
+							<td><input name="login" value="login" size="35"></td>
+						</tr>
+						
+						<tr>
+							<td width="20%"><p>Пароль:</p></td>
+							<td><input type="password" value="password" size="35"></td> 
+						</tr>
+						
+						<tr>
+							<td></td>
+							<td>
+								<button style="margin:0px 15px">Войти</button>
+								<button style="margin:0px 15px"><a href="log.html" style="color:#000; text-decoration:none">Регистрация</a></button>
+							</td>
+						</tr> 								
+					</table>
+				</td>
+			</tr>
+			
+			<tr height="10%" style="background-color: #fff">
+				<td width="10%"><p><a href="https://www.moscowbus.ru/company" style="color:#000; text-decoration:none">О нас</a></p></td> 
+				<td width="10%"><p><a href="https://www.moscowbus.ru/faq" style="color:#000; text-decoration:none">Пассажиру</a></p></td> 
+				<td width="10%"><p><a href="https://www.moscowbus.ru/contacts" style="color:#000; text-decoration:none">Наши кассы</a></p></td> 
+				<td width="10%"><p><a href="https://www.moscowbus.ru/buses" style="color:#000; text-decoration:none">Наши автобусы</a></p></td> 
+				<td width="40%"></td> 
+				<td width="20%" align="right">					
+					<table width="100%">
+						<tr>
+							<td width="20%"><p>Поиск:</p></td> 
+							<td><form name="f1" method="post" action ="search.php">
+							<input type="search" name="search_q"/>
+
+							<input style="margin:0px 10px" type="submit" value="Искать"/></br>
+							</form></td>
+						</tr>
+					</table>
+				</td> 
+			</tr>
+		
+			<tr>				
+				<!--Страницы-->
+				<td colspan="2" style="vertical-align:top">
+				<div class="menu">
+					<h3><a href="main.html" style="color:#000; text-decoration:none">Главная</a></h3>
+					<h3><a href="catalog.html" style="color:#000; text-decoration:none">Каталог автобусов</a></h3>
+					<h3><a href="contacts.html" style="color:#000; text-decoration:none">Контакты</a></h3>
+					<h3><a href="https://vk.com/moscowbus_ru" target="_blank" style="color:#000; text-decoration:none">Мы во ВКонтакте</a></h3>
+				</div>
+				</td> 
+				
+				<!--Основное-->
+				<td colspan="3" style="background-color: #fff; vertical-align:top">
+					<div class="container">
+					<div class="flat-design-form">
+
+					<div class="form-display show" id="login">
+						  <h1>Вход</h1>
+						  <form action="" method="post" novalidate="">
+							  <fieldset>
+								  <ul class = "ull">
+									  <li>
+										  <div class="item">
+											  <input data-validate-length-range="6" name="name" placeholder="Username" required="required" type="text">
+										  </div>
+									  </li>
+									  <li>
+										  <div class="item">
+											  <input data-validate-length-range="6" name="password" placeholder="Password" required='required' type="password">
+										  </div>
+									  </li>
+									  <li><input class="button-login" type="submit" value="Вход"></li>
+								  </ul>
+							  </fieldset>
+						  </form>
+					</div>
+					
+					<hr class="hr-circle">
+
+					<div class="form-display hide" id="register">
+							<h1>Регистрация</h1>
+							<form action="" method="post" novalidate="">
+								<fieldset>
+									<ul class = "ull">
+										<li>
+											<div class="item">
+												<input data-validate-length-range="6" name="name" placeholder="Username" required="required" type="text">
+											</div>
+										</li>
+										<li>
+											<div class="item">
+												<input data-validate-length="6,8" name="password"  placeholder="Password" required='required' type="text">
+											</div>
+										</li>
+										<li>
+											<div class="item">
+												<input class='email' name="email" placeholder="Email" required="required" type="email">
+											</div>
+										</li>
+										<li>
+											<div class="item">
+												<label><input name="url" placeholder="Website link"  required="required" type="url"></label>
+											</div>
+										</li>
+										<li><input class="button-register" id='send' type="submit" value="Регистрация"></li>
+									</ul>
+								</fieldset>
+							</form>
+					</div>	
+					
+					<script>
+								validator.message['date'] = 'not a real date';
+							  // validate a field on "blur" event, a 'select' on 'change' event &amp; a '.reuired' classed multifield on 'keyup':
+							  $('form').on('blur', 'input[required], input.optional, select.required', validator.checkField).on('change', 'select.required', validator.checkField).on('keypress', 'input[required][pattern]', validator.keypress);
+							  $('.multi.required').on('keyup blur', 'input', function() {
+								  validator.checkField.apply($(this).siblings().last()[0]);
+							  });
+							  // bind the validation to the form submit event
+							  //$('#send').click('submit');//.prop('disabled', true);
+							  $('form').submit(function(e) {
+								  e.preventDefault();
+								  var submit = true;
+								  // evaluate the form using generic validaing
+								  if (!validator.checkAll($(this))) {
+									  submit = false;
+								  }
+								  if (submit) this.submit();
+								  return false;
+							  });
+					</script>
+
+					 <script>
+						  (function($) {
+							  // constants
+							  var SHOW_CLASS = 'show',
+								  HIDE_CLASS = 'hide',
+								  ACTIVE_CLASS = 'active';
+							  $('.tabs').on('click', 'li a', function(e) {
+								  e.preventDefault();
+								  var $tab = $(this),
+									  href = $tab.attr('href');
+								  $('.active').removeClass(ACTIVE_CLASS);
+								  $tab.addClass(ACTIVE_CLASS);
+								  $('.show').removeClass(SHOW_CLASS).addClass(HIDE_CLASS).hide();
+								  $(href).removeClass(HIDE_CLASS).addClass(SHOW_CLASS).hide().fadeIn(620);
+							  });
+						  })(jQuery);
+
+					</script>
+				</td>	
+				
+				<!--Баннеры-->
+				<td style="vertical-align:top">
+					<a href="https://youtu.be/dQw4w9WgXcQ" target="_blank"><img src = "css/pics/ban1.jpg" alt="Баннер 1" title="Баннер 1" style="margin:10% 0 0 0"></a>
+					<p><a href="https://youtu.be/dQw4w9WgXcQ" title="Баннер 1" target="_blank" style="color:#000; text-decoration:none">Девушка не вовремя сделала каменное лицо и утонула.</a></p>					
+										
+					<a href="https://youtu.be/XbGs_qK2PQA" target="_blank"><img src = "css/pics/ban2.jpg" alt="Баннер 2" title="Баннер 2" style="margin:10% 0 0 0"></a>
+					<p><a href="https://youtu.be/XbGs_qK2PQA" title="Баннер 2" target="_blank" style="color:#000; text-decoration:none">Жил-был царь. И было у него косоглазие. Пошёл он однажды куда глаза глядят и порвался.</a></p>					
+										
+					<a href="https://youtu.be/8CdcCD5V-d8" target="_blank"><img src = "css/pics/ban3.jpg" alt="Баннер 3" title="Баннер 3" style="margin:10% 0 0 0"></a>
+					<p><a href="https://youtu.be/8CdcCD5V-d8" title="Баннер 3" target="_blank" style="color:#000; text-decoration:none">Штирлиц стрелял вслепую. Слепая бегала зигзагами и кричала.</a></p>					
+					
+					<a href="https://youtu.be/gQlMMD8auMs" target="_blank"><img src = "css/pics/ban4.jpg" alt="Баннер 4" title="Баннер 4" style="margin:10% 0 0 0"></a>
+					<p><a href="https://youtu.be/gQlMMD8auMs" title="Баннер 4" target="_blank" style="color:#000; text-decoration:none">Олег попал в жуткую аварию и чудом выжил. "Чудес не бывает", — подумал Олег и залез обратно в горящую машину.</a></p>
+				</td>
+			</tr>
+		</table>
+
+		<footer>
+			<img src = "css/pics/footer.png" align = left height="100%" style="max-height: 415px">
+			<img src = "css/pics/footer.png" align = right height="100%" style="max-height: 415px" class="mirror">
+			<br><br><p align="center">Автобусная компания Столичная</p>
+			<p align="center">г. Москва, Микрорайон Опытное поле, д. 11</p>
+			<p align="center">+7 (917) 551-11-11</p>
+			<p align="center">+7 (495) 773-71-11</p>
+			<hr>
+			<div>
+				<div style="text-align:center;"><p>Следите за нами в соцсетях!</p></div>
+				<ul class="social-icons">
+					<li><a class="social-icon-vk" href="https://vk.com" title="АК Столичная в ВКонтакте!" target="_blank" rel="noopener"><i class="fa fa-vk"></i></a></li>
+					<li><a class="social-icon-tg" href="https://t.me" title="АК Столичная в Telegram!" target="_blank" rel="noopener"><i class="fa fa-telegram"></i></a></li>
+					<li><a class="social-icon-fb" href="https://www.facebook.com" title="АК Столичная в Facebook!" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+					<li><a class="social-icon-ig" href="https://www.instagram.com" title="АК Столичная в Instagram!" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
+					<li><a class="social-icon-yt" href="https://www.youtube.com" title="АК Столичная на Youtube!" target="_blank" rel="noopener"><i class="fa fa-youtube"></i></a></li>
+				</ul>
+			</div>	
+			<p align="center">&#169; Все права защищены Москва 2022<p>			
+		</footer>		
+	</body>	
